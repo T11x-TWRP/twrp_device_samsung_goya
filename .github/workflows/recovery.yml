@@ -1,0 +1,42 @@
+name: Recovery CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  teamwin:
+    name: TeamWin Recovery Build CI
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Installing build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install zip gcc-multilib g++-multilib \
+            libc6-dev-i386 lib32ncurses5-dev lib32z1-dev \
+            libgl1-mesa-dev libxml2-utils xsltproc schedtool axel
+
+      - name: Syncing TeamWin Recovery sources
+        run: |
+          mkdir ~/teamwin
+          cd ~/teamwin
+
+          mkdir ~/.bin
+          curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+          python3 ~/.bin/repo init -b twrp-6.0 --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git
+          python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
+          git clone --branch twrp-6.0 --single-branch https://github.com/T11x-TWRP/twrp_device_samsung_goya.git device/samsung/goya
+
+      - name: Building TeamWin Recovery
+        run: |
+          cd ~/teamwin
+          source build/envsetup.sh
+          export LC_ALL=C
+          lunch omni_goya-eng
+          make -j$(nproc --all) recoveryimage
+
+      - name: Uploading TeamWin Recovery builds
+        uses: actions/upload-artifact@v2
+        with:
+          name: TeamWin_goya
+          path: /home/runner/teamwin/out/target/product/goya/recovery.img

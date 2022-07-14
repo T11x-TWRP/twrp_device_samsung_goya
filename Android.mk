@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
-export ALLOW_MISSING_DEPENDENCIES=true
+ifneq ($(filter goya,$(TARGET_DEVICE)),)
 
-add_lunch_combo omni_j1pop3g-eng
+LOCAL_PATH := device/samsung/goya
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
+
+endif
