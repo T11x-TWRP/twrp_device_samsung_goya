@@ -3,7 +3,7 @@
 Copyright 2022, TeamWin Recovery Project
 
 The Samsung Galaxy Tab 3 Lite 7.0 (codenamed _"goya"_) is a budget tablet from Samsung.
-It was released in October 2015.
+It was released in February 2014.
 
 |                   Basic | Spec Sheet                                            |
 | ----------------------: | :---------------------------------------------------- |
@@ -18,4 +18,4 @@ It was released in October 2015.
 | Rear camera             | 2 MP                                                  |
 | Shipped Android Version | 4.2.2                                                 |
 
-<img src="https://user-images.githubusercontent.com/67373913/179186129-f6b83d82-ceed-420c-bb34-b6d56a4fb1c0.png" width="40%">
+<img src="https://user-images.githubusercontent.com/67373913/179188747-8f611d54-9c19-41c1-8350-02539e662e77.png" width="40%">
