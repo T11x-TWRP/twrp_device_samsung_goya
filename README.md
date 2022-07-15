@@ -18,4 +18,4 @@ It was released in October 2015.
 | Rear camera             | 2 MP                                                  |
 | Shipped Android Version | 4.2.2                                                 |
 
-<img src="https://user-images.githubusercontent.com/67373913/157935867-a2be4413-6fcc-43ac-a50b-73a1af308c08.png" width="40%">
+<img src="https://user-images.githubusercontent.com/67373913/179186129-f6b83d82-ceed-420c-bb34-b6d56a4fb1c0.png" width="40%">
